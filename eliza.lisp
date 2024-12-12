@@ -37,18 +37,48 @@
 			    (so long)))
 
 (defun eliza ()
-  "Respond to user input using pattern matching rules."
-  (catch :end-eliza-loop
+  "Respond to user input using pattern matching rules. Asks for age and sex initially."
+  (let ((age nil)
+        (sex nil))
+    ;; Ask for age
+    (format t "Welcome to ELIZA your new symptom-checker!~%")
     (loop
-     (print 'eliza>)
-     (let* ((input (read-line-no-punct))
-	    (response (flatten (use-eliza-rules input))))
-       (if (or (member input *good-byes* :test #'equalp)
-	       (member response *good-byes* :test #'equalp))
-	   (progn
-	     (print-with-spaces response)
-	     (throw :end-eliza-loop (values)))
-	 (print-with-spaces response))))))
+     (format t "Please enter your age ")
+     (let ((input (read-line)))
+       (handler-case
+           (progn
+             (setf age (parse-integer input :junk-allowed nil))
+             (when (and (integerp age) (> age 0))
+               (format t "Thank you! You entered age ~A~%" age)
+               (return)))
+         (parse-error (e)
+           (format t "Invalid input. Please enter a valid positive number~%")))))
+
+    ;; Ask for sex
+    (loop
+      (format t "Please enter your sex (male female or other) ~%")
+      (setf sex (string-trim '(#\Space #\Tab) (read-line)))
+      (if (member sex '("male" "female" "other") :test #'string-equal)
+          (progn
+            (format t "Thank you! You entered sex ~A~%" sex)
+            (return)) ;; Exit loop if the input is valid
+        (format t "Invalid input. Please enter male female or other~%")))
+
+
+    ;; Enter main ELIZA loop
+    (catch :end-eliza-loop
+      (loop
+       (print 'eliza>)
+       (let* ((input (read-line-no-punct))
+              (response (flatten (use-eliza-rules input))))
+         (if (or (member input *good-byes* :test #'equalp)
+                 (member response *good-byes* :test #'equalp))
+             (progn
+               (print-with-spaces response)
+               (throw :end-eliza-loop (values)))
+           (print-with-spaces response)))))))
+
+
 
 (defun print-with-spaces (list)
   (mapc #'(lambda (x) (prin1 x) (princ " ")) list))
