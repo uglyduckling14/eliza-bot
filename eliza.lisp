@@ -1,17 +1,5 @@
 ;;; -*- Mode: Lisp; Syntax: Common-Lisp; -*-
 
-#|
-=========================================================
-Module: eliza.lisp: 
-Description: A version of ELIZA that takes inputs without 
-paretheses around them.
-Bugs to vladimir kulyukin in canvas
-=========================================================
-|#
-#|
-=========================================================
-==================================
-|#
 
 ;;; ==============================
 

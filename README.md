@@ -44,6 +44,15 @@ cd eliza-bot
 
 Alternatively, you can download the ZIP file and extract it to a directory of your choice.
 
+### 2. Set up your directory
+
+Navigate to the `load-eliza.lisp` file and change the eliza path parameter to be the location of your directory.
+
+```
+(defparameter *eliza-path* 
+  "C:/Users/Downloads/Your-Directory")
+```
+
 ### 2. Start CLISP
 
 Two ways to start the CLISP shell, either navigate to the directory that you downloaded it to, and start the CLISP application or

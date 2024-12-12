@@ -1,12 +1,5 @@
 ;;; -*- Mode: Lisp; Syntax: Common-Lisp; -*-
 
-#|
-=========================================================
-Module: load_eliza.lisp: 
-Description: a loader for the ELIZA modules.
-bugs to vladimir kulyukin in canvas
-=========================================================
-|#
 
 ;;; change this parameter as needed.
 (defparameter *eliza-path* 
