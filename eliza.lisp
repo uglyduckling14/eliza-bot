@@ -78,8 +78,6 @@
                (throw :end-eliza-loop (values)))
            (print-with-spaces response)))))))
 
-
-
 (defun print-with-spaces (list)
   (mapc #'(lambda (x) (prin1 x) (princ " ")) list))
 
@@ -217,7 +215,7 @@
 
     ;;; rule for ending conversation
     (((?* ?x) bye (?* ?y)) 
-     (Take care. Stay healthy!)
+     (Take care. Stay healthy! If you have time please fill out this survey: "https://usu.co1.qualtrics.com/jfe/form/SV_5mu22ytm9CQYpSu")
      (Goodbye. Feel better soon!))
     
 
@@ -228,10 +226,4 @@
   )
 )
 
-
-;;; ==============================
-
-
-
-;;; ==============================
 
