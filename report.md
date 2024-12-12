@@ -5,6 +5,12 @@ This project aimed to extend the classic ELIZA chatbot to handle specialized, co
 
 ---
 
+**Demo**
+
+Please go to the recording included in the project under the name "Recording 2024-12-12 155507.mp4". The README should be plenty to set up and run this project but in the event you run into issues, I included a demo video.
+
+---
+
 **Implementation**
 
 Initial implementation was very simple and used some source code from HW07 as a starter code. 
@@ -134,6 +140,11 @@ I really wanted to be able to have ELIZA store information about the user but I 
 
 I will talk more in detail about what user feedback I received in my survey in another section but here is an example of the feedback implemented.
 
+**Introduction**
+This project aimed to extend the classic ELIZA chatbot to handle specialized, context-aware natural language inputs related to medical symptom checking. By expanding ELIZA's rule-based architecture, I sought to simulate a basic medical triage chatbot capable of recognizing and responding to common medical symptoms while avoiding diagnostic claims. This report documents the challenges faced during development, the methodology for user testing, and the results of user interactions.
+
+---
+
 ```
 Welcome to ELIZA your new symptom-checker! If this is an emergency STOP and call 911
 Please enter your age 12
@@ -163,8 +174,6 @@ IF ONE OF YOUR COWORKERS WAS SICK LAST WEEK THEN YOU MAY HAVE CAUGHT WHATEVER TH
 ELIZA> bye
 TAKE CARE. STAY HEALTHY! IF YOU HAVE TIME PLEASE FILL OUT THIS SURVEY https://usu.co1.qualtrics.com/jfe/form/SV_5mu22ytm9CQYpSu
 ```
-
-This was the final version of ELIZA! Like most projects this took me way longer than anticipated but I am pleased with the final results.
 
 ---
 
@@ -230,3 +239,5 @@ If I had more time and more manpower and resources I would implement the followi
 
 **Conclusion**
 Despite the initial setbacks with deploying ELIZA as a web-based application, the project successfully extended the chatbot's capabilities to handle medical symptom-related dialogues. User testing provided valuable insights into areas for improvement, such as expanding the bot's vocabulary and refining response specificity. These findings will inform future iterations of the bot.
+
+This project aimed to extend the classic ELIZA chatbot to handle specialized, context-aware natural language inputs related to medical symptom checking. By expanding ELIZA's rule-based architecture, I sought to simulate a basic medical triage chatbot capable of recognizing and responding to common medical symptoms while avoiding diagnostic claims. This report documents the challenges faced during development, the methodology for user testing, and the results of user interactions.
