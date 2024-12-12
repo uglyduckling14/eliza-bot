@@ -41,7 +41,7 @@
   (let ((age nil)
         (sex nil))
     ;; Ask for age
-    (format t "Welcome to ELIZA your new symptom-checker!~%")
+    (format t "Welcome to ELIZA your new symptom-checker! If this is an emergency STOP and call 911!~%")
     (loop
      (format t "Please enter your age ")
      (let ((input (read-line)))
@@ -216,13 +216,12 @@
     ;;; rule for ending conversation
     (((?* ?x) bye (?* ?y)) 
      (Take care. Stay healthy! If you have time please fill out this survey: "https://usu.co1.qualtrics.com/jfe/form/SV_5mu22ytm9CQYpSu")
-     (Goodbye. Feel better soon!))
-    
+     (Goodbye. Feel better soon!)) 
 
     (((?* ?x))               
-     (That does not sound fun.) (I am not sure I understand you fully)
-     (What do you think caused this?) (Please continue) (Give me more details) 
-     (I am sorry that is happening to you))
+     (I am not sure I understand you fully try using keywords like fever or pain)
+     (Can you rephrase what you said in another way?)
+     (Give me more details) 
   )
 )
 
