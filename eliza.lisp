@@ -96,8 +96,7 @@
     ;;; rule 2 - Cough
     (((?* ?x) cough (?* ?y))  
      (How long have you been coughing?)
-     (Is the cough dry or productive?)
-     (Do you have any pain or discomfort when coughing?))
+     (Is your cough dry or wet?))
 
     ;;; rule 3 - Pain
     (((?* ?x) pain (?* ?y))  
@@ -129,11 +128,11 @@
      (Do you have any stomach pain or discomfort?)
      (What color is the vomit?))
 
-    ;;; rule 8 - Fatigue
-    (((?* ?x) fatigue (?* ?y))  
-     (How long have you been feeling fatigued?)
-     (Do you feel exhausted even after resting?)
-     (Have you experienced any other symptoms along with fatigue?))
+    ;;; rule 8 - tired changes
+    (((?* ?x) tired (?* ?y))
+      (Do you feel tired even after resting?)
+      (Have you had any issues sleeping?)
+      (Have you had any other symptoms?))
 
     ;;; rule 9 - Loss of appetite
     (((?* ?x) loss of appetite (?* ?y))  
@@ -207,11 +206,54 @@
      (Is there any pain or burning during urination?)
      (Have you noticed any blood or unusual color in your urine?))
 
+    ;;; rule 21 - exhaustion changes
+    (((?* ?x) exhausted (?* ?y))
+      (Do you feel exhausted even after resting?)
+      (Have you had any issues sleeping?)
+      (Have you had any other symptoms?))
+      
+    ;;; rule 22 - descriptors
+    (((?* ?x) mild (?* ?y))
+      (How many days have you felt this way?))
+
+    (((?* ?x) intense (?* ?y))
+      (If it continues to get more intense please consider going to the doctor! This sounds serious.))
+      
     ;;; new rule - asking for more information
     (((?* ?x) symptom (?* ?y))  
      (Can you describe your symptom more specifically?)
      (When did you first notice this symptom?)
      (How severe is the symptom on a scale from 1 to 10?))
+
+    ;;; new rule - yes
+    (((?* ?x) yes (?* ?y))
+    (Consider going to the doctor as your symptoms are indication of something wrong)
+    (That is not good. Do you have any other symptoms?))
+
+    ;;; new rule - no
+    (((?* ?x) no (?* ?y))
+    (Good it could be worse! Please continue with any other concerns you have)
+    (That is a good sign at least! Please tell me about any other symptoms you have!))
+
+    ;;; rule 23 - time
+    (((?* ?x) days (?* ?y))
+    (If it has been longer than 3 days you should go to the instacare as soon as possible. Otherwise wait until your symptoms change.))
+
+    ;;; rule 24 - temp
+    (((?* ?x) 1 (?* ?y))
+    (Please go to the doctor if it is higher than 104F! Otherwise please take some ibuprofen.))
+
+    ;;; rule 25 - dry
+    (((?* ?x) dry (?* ?y))
+    (A dry cough can be an indication of COVID-19 or another such virus.))
+
+    ;;; rule 26 - wet
+    (((?* ?x) wet (?* ?y))
+    (A wet or productive cough is an indicator of the flu bronchitis or pneumonia.))
+
+    ;;; rule 27 - was sick
+    (((?* ?x) was sick(?* ?y))
+    (If ?x was sick last week then you may have caught whatever they had.))
 
     ;;; rule for ending conversation
     (((?* ?x) bye (?* ?y)) 
